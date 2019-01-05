@@ -12,7 +12,7 @@ UNRELEASED
 
 Download the master.zip file...
 
-https://github.com/pjaudiomv/NA-Nerna-Search/archive/master.zip
+https://github.com/nanewengland/NA-New-England-App/archive/master.zip
 
 Unzip the zip file and cd into the directory that is created
 
