@@ -1,0 +1,15 @@
+.tabbar {
+  opacity: 1;
+}
+
+.ion-ios-home-outline{
+  &:before {
+    content: "\f448";
+  }
+}
+
+.ion-ios-contacts-outline{
+  &:before {
+    content: "\f160";
+  }
+}

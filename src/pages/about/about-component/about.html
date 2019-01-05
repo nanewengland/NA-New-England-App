@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>
+      {{'ABOUT' | translate}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>{{'ABOUT_APP_TXT' | translate}}</ion-card-title>
+      {{'ABOUT_APP' | translate}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>{{'BMLT_ENABLED' | translate}}</ion-card-title>
+      {{'BMLT_ENABLED_TXT' | translate}}
+      <ion-list>
+        <ion-item text-wrap>
+          <ion-icon name="logo-facebook" item-left></ion-icon>
+          <button ion-button small  (click)="openLink('https://www.facebook.com/groups/149214049107349/')"><ion-icon name="logo-facebook" item-left></ion-icon>&nbsp;{{'JOIN_FB_GROUP' | translate}}</button>
+        </ion-item>
+        <ion-item text-wrap>
+          <ion-icon name="globe" item-left></ion-icon>
+          <button ion-button small  (click)="openLink('https://bmlt.magshare.net/')"><ion-icon name="globe" item-left></ion-icon>&nbsp;{{'VISIT_WEBSITE' | translate}}</button>
+        </ion-item>
+        <ion-item text-wrap>
+          <ion-icon name="logo-github" item-left></ion-icon>
+          <button ion-button small  (click)='openLink(sourceCodeRepo)'><ion-icon name="logo-github" item-left></ion-icon>&nbsp;{{'VISIT_CODE' | translate}}</button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

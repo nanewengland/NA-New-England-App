@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      {{'DATETIME' | translate}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+
+  <ion-item>
+    <ion-label>{{ 'ENTERCLEANDATE' | translate }}&nbsp;<ion-icon name="arrow-round-forward"></ion-icon> </ion-label>
+    <ion-datetime
+      displayFormat   = "MMM DD YYYY"
+      [(ngModel)]     = "cleanDate"
+      cancelText      = "{{ 'CANCEL' | translate }}"
+      doneText        = "{{ 'OK' | translate }}"
+      (ionChange)     = "getCleanTime()"
+      monthShortNames =
+        "{{ 'JAN' | translate }},
+        {{ 'FEB' | translate }},
+        {{ 'MAR' | translate }},
+        {{ 'APR' | translate }},
+        {{ 'MAY' | translate }},
+        {{ 'JUN' | translate }},
+        {{ 'JUL' | translate }},
+        {{ 'AUG' | translate }},
+        {{ 'SEP' | translate }},
+        {{ 'OCT' | translate }},
+        {{ 'NOV' | translate }},
+        {{ 'DEC' | translate }}" >
+      </ion-datetime>
+  </ion-item>
+
+  <ion-card>
+    <ion-card-header>{{ 'CLEANDAYS' | translate }}</ion-card-header>
+    <ion-card-content><h1>{{ cleanTimeInDays }} {{ 'DAYS' | translate }}</h1></ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>{{ 'CLEANWEEKS' | translate }}</ion-card-header>
+    <ion-card-content><h1>{{ cleanTimeInWeeks }} {{ 'WEEKS' | translate }}</h1></ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>{{ 'CLEANMONTHS' | translate }}</ion-card-header>
+    <ion-card-content><h1>{{ cleanTimeInMonths }} {{ 'MONTHS' | translate }}</h1></ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>{{ 'CLEANYEARS' | translate }}</ion-card-header>
+    <ion-card-content><h1>{{ cleanTimeInYears }} {{ 'YEARS' | translate }}</h1></ion-card-content>
+  </ion-card>
+
+</ion-content>

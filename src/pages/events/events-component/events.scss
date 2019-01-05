@@ -1,0 +1,89 @@
+
+div.views-row {
+  padding-bottom: 40px;
+
+
+  img {
+    border: 0;
+    vertical-align: middle;
+  }
+
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  *:after,
+  *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  a,
+  a:focus,
+  a:hover {
+    color: #000;
+    text-decoration: none;
+    font-size: 35px;
+  }
+  .enable-hover a:hover{opacity:1;}
+
+  .img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 35px;
+  }
+
+  .enable-hover h2:hover{opacity:1;}
+
+  p {
+    margin: 0 0 10px;
+  }
+
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .col-sm-10,
+  .col-sm-2 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+  .row:after,
+  .row:before {
+    content: " ";
+    display: table;
+  }
+
+  .row:after {
+    clear: both;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  .view-id-eventi img {
+    margin-top: 3rem;
+    pointer-events: none;
+
+  }
+
+}

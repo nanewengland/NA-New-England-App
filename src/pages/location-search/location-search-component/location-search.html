@@ -1,0 +1,128 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'LOCATIONSEARCH' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div ngSwitch="{{ currentAddress }}">
+    <div *ngSwitchCase="''"></div>
+    <div *ngSwitchCase="'Location not found'" [ngClass]="'one'">
+      <ion-item text-wrap><b>{{'NO_LOCATION' | translate}}</b></ion-item>
+    </div>
+    <div *ngSwitchDefault>
+      <div *ngFor="let group1 of meetingListGrouped; let i = index" (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+        <ion-item-divider [color]="isToday(group1[0].weekday_tinyint) ? 'today' : 'dark'">
+          <div ngSwitch="{{ group1[0].weekday_tinyint }}">
+            <div *ngSwitchCase="'1'">
+              <h3>{{'SUNDAY' | translate}} ({{sunCount}})</h3></div>
+            <div *ngSwitchCase="'2'">
+              <h3>{{'MONDAY' | translate}} ({{monCount}})</h3></div>
+            <div *ngSwitchCase="'3'">
+              <h3>{{'TUESDAY' | translate}} ({{tueCount}})</h3></div>
+            <div *ngSwitchCase="'4'">
+              <h3>{{'WEDNESDAY' | translate}} ({{wedCount}})</h3></div>
+            <div *ngSwitchCase="'5'">
+              <h3>{{'THURSDAY' | translate}} ({{thuCount}})</h3></div>
+            <div *ngSwitchCase="'6'">
+              <h3>{{'FRIDAY' | translate}} ({{friCount}})</h3></div>
+            <div *ngSwitchCase="'7'">
+              <h3>{{'SATURDAY' | translate}} ({{satCount}})</h3></div>
+            <div *ngSwitchDefault>Nothing Found.</div>
+          </div>
+          <ion-icon color="white" item-left [name]="isGroupShown(i) ? 'close-circle' : 'add-circle'"></ion-icon>
+        </ion-item-divider>
+        <div *ngIf="isGroupShown(i)">
+          <ion-list *ngFor="let group2 of group1; let j = index">
+            <ion-card text-wrap>
+              <ion-card-header>
+                <div ngSwitch="{{ group2.weekday_tinyint }}">
+                  <div *ngSwitchCase="'1'" [ngClass]="'one'">
+                    <ion-badge color="Green"><b>{{'SUNDAY' | translate}}   {{ group2.start_time_set  }} </b></ion-badge>
+                  </div>
+                  <div *ngSwitchCase="'2'" [ngClass]="'one'">
+                    <ion-badge color="Teal"><b>{{'MONDAY' | translate}}   {{ group2.start_time_set  }} </b></ion-badge>
+                  </div>
+                  <div *ngSwitchCase="'3'" [ngClass]="'one'">
+                    <ion-badge color="Lime"><b>{{'TUESDAY' | translate}}   {{ group2.start_time_set }} </b></ion-badge>
+                  </div>
+                  <div *ngSwitchCase="'4'" [ngClass]="'one'">
+                    <ion-badge color="Purple"><b>{{'WEDNESDAY' | translate}}   {{ group2.start_time_set }} </b></ion-badge>
+                  </div>
+                  <div *ngSwitchCase="'5'" [ngClass]="'one'">
+                    <ion-badge color="Brown"><b>{{'THURSDAY' | translate}}   {{ group2.start_time_set  }} </b></ion-badge>
+                  </div>
+                  <div *ngSwitchCase="'6'" [ngClass]="'one'">
+                    <ion-badge color="Pink"><b>{{'FRIDAY' | translate}}   {{ group2.start_time_set }} </b></ion-badge>
+                  </div>
+                  <div *ngSwitchCase="'7'" [ngClass]="'one'">
+                    <ion-badge color="Orange"><b>{{'SATURDAY' | translate}}   {{ group2.start_time_set  }} </b></ion-badge>
+                  </div>
+                  <div *ngSwitchDefault>{{'NOTHING_FOUND' | translate}}</div>
+                </div>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-10>
+                      <h1>{{group2.meeting_name}}</h1>
+                      <div *ngIf="group2.location_text">{{group2.location_text}}<br></div>
+                      <div *ngIf="group2.location_street">{{group2.location_street}}<br></div>
+                      <div *ngIf="group2.location_city_subsection">{{group2.location_city_subsection}}<br></div>
+                      <div *ngIf="group2.location_neighbourhood">{{group2.location_neighbourhood}}<br></div>
+                      <div *ngIf="group2.location_municipality">{{group2.location_municipality}}<br></div>
+                      <div *ngIf="group2.location_sub_province">{{group2.location_sub_province}}<br></div>
+                      <div *ngIf="group2.location_province">{{group2.location_province}}<br></div>
+                      <div *ngIf="group2.location_code_1">{{group2.location_code_1}}<br></div>
+                      <div *ngIf="group2.location_info">{{group2.location_info}}<br></div>
+                      <div *ngIf="group2.comments">{{group2.comments}}<br></div>
+                      <div *ngIf="group2.contact_phone_1">{{group2.contact_phone_1 | tidyDelimter }}<br></div>
+                      <div *ngIf="group2.contact_email_1">{{group2.contact_email_1 | tidyDelimter }}<br></div>
+                      <div *ngIf="group2.train_lines">{{'TRAIN' | translate }}: {{group2.train_lines | tidyDelimter }}<br></div>
+                      <div *ngIf="group2.bus_lines">{{'BUS' | translate }}: {{group2.bus_lines | tidyDelimter }}<br></div>
+                      <div>{{'DISTANCE' | translate}}: <i>{{ group2.distance_in_miles | number:'1.1-1'  }} {{'MILES' | translate}}, {{ group2.distance_in_km | number:'1.1-1'  }} {{'KMS' | translate}} </i><br></div>
+                      <div *ngIf="group2.formats"><i>{{'FORMATS' | translate}}: {{group2.formats | tidyDelimter }}</i><br></div>
+                    </ion-col>
+                    <ion-col>
+                      <button ion-button (click)="openMapsLink(group2.latitude , group2.longitude)"><ion-icon name="navigate"> </ion-icon>&nbsp;{{'DIRECTIONS' | translate}}</button>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-content>
+            </ion-card>
+          </ion-list>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>
+
+<ion-footer no-padding>
+  <ion-toolbar no-padding>
+
+    <ion-item text-wrap>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-10>
+            <b>{{radius}} {{'MEETINGS_NEAREST' | translate}} {{ currentAddress }}</b>
+          </ion-col>
+          <ion-col>
+            <button ion-button color="danger" id="LocationButton" (click)="locatePhone()" class="col text-center text-wrap">
+               <ion-icon name="locate"></ion-icon>
+          </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <ion-range id="RadiusRange" min="5" max="50" [(ngModel)]="radius" (ionBlur)="getAllMeetings()" color="danger" pin="true">
+      <ion-label range-left>5 {{'MEETINGS' | translate}}</ion-label>
+      <ion-label range-right>50 {{'MEETINGS' | translate}}</ion-label>
+    </ion-range>
+
+  </ion-toolbar>
+</ion-footer>

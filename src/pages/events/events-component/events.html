@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      {{'EVENTS' | translate}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+
+  <ion-card>
+	  <ion-card-content>
+      {{ 'EVENTSDETAILS' | translate}}
+      <ion-item text-wrap>
+        <button ion-button small style="text-transform: none;" onclick="window.open('https://nerna.org/calendar/', '_system', 'location=yes')"><ion-icon name="globe" item-left></ion-icon>&nbsp;nerna.org</button>
+      </ion-item>
+
+	  </ion-card-content>
+	</ion-card>
+
+
+
+
+  <ion-card>
+	  <ion-card-content>
+      <div [innerHtml]="events" ></div>
+	  </ion-card-content>
+	</ion-card>
+
+</ion-content>
