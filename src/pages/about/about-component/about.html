@@ -17,6 +17,19 @@
       {{'ABOUT_APP' | translate}}
     </ion-card-content>
   </ion-card>
+  
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>{{'SRC_CODE' | translate}}</ion-card-title>
+      {{'SRC_CODE_TXT' | translate}}
+      <ion-list>
+        <ion-item text-wrap>
+          <ion-icon name="logo-github" item-left></ion-icon>
+          <button ion-button small  (click)='openLink(appSourceCodeRepo)'><ion-icon name="logo-github" item-left></ion-icon>&nbsp;{{'VISIT_CODE' | translate}}</button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 
   <ion-card>
     <ion-card-content>

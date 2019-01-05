@@ -6,9 +6,7 @@ import { AgmCoreModule }        from '@agm/core';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { Geolocation }          from '@ionic-native/geolocation';
 import { PipesModule }          from '../../pipes/pipes.module';
-import { AgmMarkerSpiderModule } from 'agm-spiderfeir';
 
-//import { AgmMarkerSpiderModule } from 'agm-oms';
 
 @NgModule({
   declarations: [
@@ -21,8 +19,7 @@ import { AgmMarkerSpiderModule } from 'agm-spiderfeir';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAtwUjsIB14f0aHgdLk_JYnUrI0jvczMXw'
     }),
-    AgmJsMarkerClustererModule,
-    AgmMarkerSpiderModule
+    AgmJsMarkerClustererModule
   ],
   exports: [
     MapSearchComponent
