@@ -10,7 +10,6 @@ export class AboutComponent {
 
     sourceCodeLink    : string = "https://github.com/paulnagle/BMLTSearch";
     sourceCodeRepo        : string = "https://github.com/bmlt-enabled/";
-    appSourceCodeRepo        : string = "https://github.com/nanewengland/NA-New-England-App";
     bmltLink          : string = "https://bmlt.app/";
 
     constructor( private config       : Config,

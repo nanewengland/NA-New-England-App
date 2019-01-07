@@ -26,6 +26,7 @@ import { EventsProvider} from '../providers/events/events'
 import { MeetingListProvider }   from '../providers/meeting-list/meeting-list';
 import { ServiceGroupsProvider } from '../providers/service-groups/service-groups';
 import { GeolocateProvider }     from '../providers/geolocate/geolocate';
+import { WordpressModule } from '../pages/wordpress/wordpress.module';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { GeolocateProvider }     from '../providers/geolocate/geolocate';
     JustfortodayModule,
     LocationSearchModule,
     EventsPageModule,
-    MeetinglistModule
+    MeetinglistModule,
+    WordpressModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

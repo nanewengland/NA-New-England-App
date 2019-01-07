@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="danger">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+
+		<ion-title *ngIf="!category">{{'POSTS' | translate}}</ion-title>
+		<ion-title *ngIf="category">{{category.name}} <span *ngIf="category.count">({{category.count}})</span></ion-title>
+
+	</ion-navbar>
+
+</ion-header>
+
+<ion-content>
+	<ion-card *ngFor="let post of posts">
+        <ion-item text-wrap (click)="loadPost(post)">
+            <h1 [innerHTML]="post.title.rendered"></h1>
+        </ion-item>
+		<ion-card-content>
+			{{post.content.rendered | trimHTML | truncate: 100 }}
+		</ion-card-content>
+		<ion-row no-padding>
+			<ion-col text-right>
+				<button ion-button  (click)="loadPost(post)">
+					More details....
+				</button>
+			</ion-col>
+		</ion-row>
+	</ion-card>
+</ion-content>

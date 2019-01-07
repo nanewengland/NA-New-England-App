@@ -21,6 +21,7 @@
   (mapReady)="mapReady($event)">
 
     <agm-marker-cluster [maxZoom]="18" imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
+      <agm-marker-spider>
       <agm-marker *ngFor="let marker of meetingList "
       [latitude]="marker.latitude"
       [longitude]="marker.longitude"
@@ -73,6 +74,7 @@
           <button ion-button small (click)="openMapsLink(marker.latitude , marker.longitude)"><ion-icon name="ios-navigate-outline"></ion-icon>&nbsp;{{'MAP' | translate }}</button>
         </agm-info-window>
       </agm-marker>
+      </agm-marker-spider>
     </agm-marker-cluster>
 
 

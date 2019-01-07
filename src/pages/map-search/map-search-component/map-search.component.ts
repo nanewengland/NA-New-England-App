@@ -43,14 +43,13 @@ export class MapSearchComponent {
               private iab                 : InAppBrowser   ) {
 
   }
-
     previous;
     clickedMarker(infowindow) {
-      if (this.previous) {
-        this.previous.close();
-      }
-      this.previous = infowindow;
-  }
+        if (this.previous) {
+            this.previous.close();
+        }
+        this.previous = infowindow;
+    }
 
   mapReady(event: any) {
     this.map = event;
@@ -106,42 +105,16 @@ export class MapSearchComponent {
 
       }
 
-      this.setLatLngOffsets();
-      this.dismissLoader();
-    });
-  }
-
-  setLatLngOffsets() {
-    var i : any;
+var i : any;
     var dist : number = 0;
     for (i = 0; i < this.meetingList.length - 1; i++) {
       if (parseFloat(this.meetingList[i].distance_in_km) > dist) {
         dist = parseFloat(this.meetingList[i].distance_in_km);
       }
-      var longOffset : any = 0;
-      var latOffset  : any = 0;
-      var Offset     : any = 0.00002;
-      // maybe use :- https://github.com/TopicFriends/TopicFriends/commit/d6c61ae976eb1473b314bd804cebacd5106dac37
-      while ((this.meetingList[i].longitude == this.meetingList[i+1].longitude) &&
-             (this.meetingList[i].latitude == this.meetingList[i+1].latitude) ){
-        if ( (i % 2) === 1) {
-          longOffset += Offset;
-          this.meetingList[i].longitude = this.meetingList[i].longitude  + longOffset;
-        } else {
-          latOffset += Offset;
-          this.meetingList[i].latitude = this.meetingList[i].latitude  + latOffset;
-        }
-        i++;
-        if (i == (this.meetingList.length - 1)) {
-          longOffset = 0;
-          latOffset = 0;
-          break;
-        }
-      } // while
-
-    } // for
-
-    this.circleRadiusMeters = dist * 1000;
+      }
+      this.dismissLoader();
+      this.circleRadiusMeters = dist * 1000;
+    });
   }
 
   public radiusChange() {

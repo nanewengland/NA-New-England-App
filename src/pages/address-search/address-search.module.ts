@@ -7,6 +7,8 @@ import { Geolocation }          from '@ionic-native/geolocation';
 import { PipesModule }          from '../../pipes/pipes.module';
 
 import { AddressSearchComponent } from './address-search-component/address-search.component';
+import { AgmMarkerSpiderModule } from 'agm-spiderfeir';
+//import { AgmMarkerSpiderModule } from 'agm-oms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { AddressSearchComponent } from './address-search-component/address-searc
       apiKey: 'AIzaSyAtwUjsIB14f0aHgdLk_JYnUrI0jvczMXw',
       libraries: ['places']
     }),
-    AgmJsMarkerClustererModule
+    AgmJsMarkerClustererModule,
+    AgmMarkerSpiderModule
     ],
     exports: [
       AddressSearchComponent

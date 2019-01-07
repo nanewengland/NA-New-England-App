@@ -86,6 +86,5 @@
     "BMLT_ENABLED"      : "BMLT Enabled",
     "BMLT_ENABLED_TXT"  : "This app was made possible by the efforts of the BMLT Enabled community to learn more about the projects they work on visit some of these links.",
     "VISIT_CODE"        : "Visit Code Repository",
-    "LOADINGCONTACTS"   : "Loading Contacts",
-    "SRC_CODE_TXT"      : "If you would like to contribute to this app the link to the source code repository is below."
+    "LOADINGCONTACTS"   : "Loading Contacts"
 }
