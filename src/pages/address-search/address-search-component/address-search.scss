@@ -3,3 +3,23 @@ page-address-search {
   	margin: 0 !important;
     }
 }
+
+ion-range#RadiusRange {
+  /* z-index: 0; */
+  position: relative !important;
+  top: 0px;
+  left: 0px !important;
+  background: #6a73da;
+  color:#fff;
+
+}
+
+div.range-slider div.range-bar.range-bar-active {
+  background-color: #fff;
+
+}
+
+div.range-slider div.range-knob-handle div.range-knob {
+  background-color: #fff;
+
+}

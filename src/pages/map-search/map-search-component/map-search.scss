@@ -10,7 +10,17 @@ ion-range#RadiusRange {
 	position: relative !important;
 	top: 0px;
 	left: 0px !important;
-	background:rgba(56,126,245, 0.9) !important;
+	background: #6a73da;
 	color:#fff;
+
+}
+
+div.range-slider div.range-bar.range-bar-active {
+	background-color: #fff;
+
+}
+
+div.range-slider div.range-knob-handle div.range-knob {
+	background-color: #fff;
 
 }
