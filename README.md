@@ -12,7 +12,7 @@ UNRELEASED
 
 Download the master.zip file...
 
-https://github.com/pjaudiomv/NA-Nerna-Search/archive/master.zip
+https://github.com/nanewengland/NA-New-England-App/archive/master.zip
 
 Unzip the zip file and cd into the directory that is created
 
@@ -40,4 +40,16 @@ To build for app store distribution, I have found that the best thing to do is t
 
 After this, a platforms directory will be created with folder for android that contains an Android Studio project, and a folder for ios that contains an xcode project.
 
+### When building for release the following file needs to be changed
+`node_modules/ts-overlapping-marker-spiderfier/dist/oms.js`
 
+Line 313 
+`if (markerSpiderfied || this.map.getStreetView().getVisible() || this.map.getMapTypeId() === 'GoogleEarthAPI') {`
+
+needs to be changed to 
+
+`if (markerSpiderfied || this.map.getStreetView().getVisible() || this.map.getMapTypeId() === 'GoogleEarthAPI' || this.map.getZoom() < 7) {`
+
+The iphone occasionally depending on meeting count wants to spidefy at inital zoom level 8, we don't want this. 
+
+When building xcode archive for release make sure to uncheck rotation right/left so we lock orientation to portrait. There seems to be an issue with the viewport being reset on rotation, we have the "notch" on iPhone X and up to thanks for this.
