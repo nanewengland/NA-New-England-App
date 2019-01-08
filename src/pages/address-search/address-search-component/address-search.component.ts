@@ -36,6 +36,7 @@ export class AddressSearchComponent {
   myLatLng           : LatLng;
   circleRadiusMeters : number  = 0 ;
   formattedAddress   : string  = '';
+    format          : any;
 
 	autocompleteService: any;
 	placesService      : any;
@@ -58,6 +59,18 @@ export class AddressSearchComponent {
 
   }
 
+    spiderIcon(event: any) {
+        this.format = event;
+        var marker = this.format.marker;
+        var status = this.format.status;
+        if (status == 'SPIDERFIABLE') {
+            marker.icon = 'assets/img/marker-na-red.png';
+        } else if (status == 'UNSPIDERFIABLE') {
+            marker.icon = 'assets/img/marker-na.png';
+        } else if (status == 'SPIDERFIED') {
+            marker.icon = 'assets/img/marker-na-red.png';
+        }
+    }
 
   previous;
   clickedMarker(infowindow) {

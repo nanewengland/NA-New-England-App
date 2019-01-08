@@ -31,6 +31,7 @@ export class MapSearchComponent {
   mapBounds          : LatLngBounds;
   myLatLng           : LatLng;
   circleRadiusMeters : number  = 0 ;
+    format          : any;
   @ViewChild('circle', {read: AgmCircle}) circle: AgmCircle;
 
 
@@ -43,6 +44,20 @@ export class MapSearchComponent {
               private iab                 : InAppBrowser   ) {
 
   }
+
+    spiderIcon(event: any) {
+        this.format = event;
+        var marker = this.format.marker;
+        var status = this.format.status;
+        if (status == 'SPIDERFIABLE') {
+            marker.icon = 'assets/img/marker-na-red.png';
+        } else if (status == 'UNSPIDERFIABLE') {
+            marker.icon = 'assets/img/marker-na.png';
+        } else if (status == 'SPIDERFIED') {
+            marker.icon = 'assets/img/marker-na-red.png';
+        }
+    }
+
     previous;
     clickedMarker(infowindow) {
         if (this.previous) {
