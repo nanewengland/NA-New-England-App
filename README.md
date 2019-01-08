@@ -50,6 +50,6 @@ needs to be changed to
 
 `if (markerSpiderfied || this.map.getStreetView().getVisible() || this.map.getMapTypeId() === 'GoogleEarthAPI' || this.map.getZoom() < 7) {`
 
-The iphone occasionally depending on meeting count wants to spidefy at inital zoom level 8, we don't want this. 
+depending on meeting count it wants to spidefy at inital zoom level 8, we don't want this. 
 
 When building xcode archive for release make sure to uncheck rotation right/left so we lock orientation to portrait. There seems to be an issue with the viewport being reset on rotation, we have the "notch" on iPhone X and up to thanks for this.
