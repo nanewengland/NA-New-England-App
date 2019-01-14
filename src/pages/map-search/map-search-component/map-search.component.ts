@@ -31,7 +31,8 @@ export class MapSearchComponent {
   mapBounds          : LatLngBounds;
   myLatLng           : LatLng;
   circleRadiusMeters : number  = 0 ;
-    format          : any;
+  format             : any;
+
   @ViewChild('circle', {read: AgmCircle}) circle: AgmCircle;
 
 
@@ -45,6 +46,14 @@ export class MapSearchComponent {
 
   }
 
+    previous;
+    clickedMarker(infowindow) {
+        if (this.previous) {
+            this.previous.close();
+        }
+        this.previous = infowindow;
+    }
+
     spiderIcon(event: any) {
         this.format = event;
         var marker = this.format.marker;
@@ -56,14 +65,6 @@ export class MapSearchComponent {
         } else if (status == 'SPIDERFIED') {
             marker.icon = 'assets/img/marker-na-red.png';
         }
-    }
-
-    previous;
-    clickedMarker(infowindow) {
-        if (this.previous) {
-            this.previous.close();
-        }
-        this.previous = infowindow;
     }
 
   mapReady(event: any) {

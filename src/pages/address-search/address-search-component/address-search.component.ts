@@ -36,13 +36,13 @@ export class AddressSearchComponent {
   myLatLng           : LatLng;
   circleRadiusMeters : number  = 0 ;
   formattedAddress   : string  = '';
-    format          : any;
+  format             : any;
 
-	autocompleteService: any;
-	placesService      : any;
-	query              : string  = '';
-	places             : any     = [];
-	location           : any;
+    autocompleteService: any;
+    placesService      : any;
+    query              : string  = '';
+    places             : any     = [];
+    location           : any;
 
 
 
@@ -59,6 +59,14 @@ export class AddressSearchComponent {
 
   }
 
+    previous;
+    clickedMarker(infowindow) {
+        if (this.previous) {
+            this.previous.close();
+        }
+        this.previous = infowindow;
+    }
+
     spiderIcon(event: any) {
         this.format = event;
         var marker = this.format.marker;
@@ -72,53 +80,47 @@ export class AddressSearchComponent {
         }
     }
 
-  previous;
-  clickedMarker(infowindow) {
-    if (this.previous) {
-        this.previous.close();
-    }
-    this.previous = infowindow;
- }
 
 
-	selectPlace(place){
-		this.places = [];
-		let location = {
-			lat: null,
-			lng: null,
-			name: place.name
-		};
-		this.placesService.getDetails({placeId: place.place_id}, (details) => {
-			this.zone.run(() => {
+
+    selectPlace(place){
+        this.places = [];
+        let location = {
+            lat: null,
+            lng: null,
+            name: place.name
+        };
+        this.placesService.getDetails({placeId: place.place_id}, (details) => {
+            this.zone.run(() => {
 
         this.mapLatitude = details.geometry.location.lat();
         this.mapLongitude = details.geometry.location.lng();
         this.query = details.formatted_address;
         this.getMeetings();
 
-			});
-		});
-	}
+            });
+        });
+    }
 
-	searchPlace(){
-		if(this.query.length) {
-			let config = {
-				types: ['geocode'],
-				input: this.query
-			}
-			this.autocompleteService.getPlacePredictions(config, (predictions, status) => {
-				if(status == google.maps.places.PlacesServiceStatus.OK && predictions){
-					this.places = [];
-					predictions.forEach((prediction) => {
-						this.places.push(prediction);
-					});
-				}
-			});
-		} else {
-			this.places = [];
-		}
+    searchPlace(){
+        if(this.query.length) {
+            let config = {
+                types: ['geocode'],
+                input: this.query
+            }
+            this.autocompleteService.getPlacePredictions(config, (predictions, status) => {
+                if(status == google.maps.places.PlacesServiceStatus.OK && predictions){
+                    this.places = [];
+                    predictions.forEach((prediction) => {
+                        this.places.push(prediction);
+                    });
+                }
+            });
+        } else {
+            this.places = [];
+        }
 
-	}
+    }
 
   mapReady(event: any) {
     this.map = event;
