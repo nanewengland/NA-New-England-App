@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.nerna.nanewengland" version="1.0.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>NA New England</name>
-    <description>NA New England Information</description>
-    <author email="admin@newenglandna.org" href="https://nerna.org/">New England Region of NA</author>
+<widget id="org.crna.nacarolina" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>NA Carolina</name>
+    <description>NA Carolina Information</description>
+    <author email="admin@crna.org" href="https://nerna.org/">Carolina Region of NA</author>
     <content src="index.html" />
     <access origin="*" />
     <content original-src="index.html" />
@@ -101,4 +101,6 @@
     </plugin>
     <plugin name="cordova-plugin-inappbrowser" spec="3.0.0" />
     <engine name="ios" spec="4.5.5" />
+    <engine name="android" spec="7.1.4" />
+    <engine name="browser" spec="5.0.4" />
 </widget>

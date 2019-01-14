@@ -13,7 +13,7 @@ export class GeolocateProvider {
   constructor(public http: HttpClient) {
   }
 
-  googleAPIKey : string = "&key=AIzaSyDlcdMgyc-2rXhRaslLBKsLRCqjeCbPs-M";
+  googleAPIKey : string = "&key=AIzaSyDrv19Tafr_IpBWPLxC2K-GfEEg-G03VDA";
   convertLatLongUrl : string = "https://maps.googleapis.com/maps/api/geocode/json?latlng=";
   convertAddressUrl : string = "https://maps.googleapis.com/maps/api/geocode/json?address=";
 

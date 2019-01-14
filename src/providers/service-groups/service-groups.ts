@@ -13,7 +13,7 @@ export class ServiceGroupsProvider {
   constructor(public http: HttpClient) {
   }
 
-  getApiUrlServiceGroups : string = "https://www.nerna.org/main_server/client_interface/json/?switcher=GetServiceBodies";
+  getApiUrlServiceGroups : string = "https://crna.org/crna_docs/serviceBodies.php";
 
   getAllServiceGroups() {
     return this.http.get(this.getApiUrlServiceGroups);

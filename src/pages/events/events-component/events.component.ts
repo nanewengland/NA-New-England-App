@@ -39,7 +39,7 @@ export class EventsComponent {
           var a = elem.getElementsByTagName("A");
           for(var i=0;i<a.length;i++)
 			a[i].removeAttribute("href");
-          var tmp = elem.getElementsByClassName("nerna-event");
+          var tmp = elem.getElementsByClassName("crna-event");
           this.events= tmp[0].innerHTML;
         }
     );

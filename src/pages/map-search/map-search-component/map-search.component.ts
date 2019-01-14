@@ -24,8 +24,8 @@ export class MapSearchComponent {
   meetingList        : any     = [];
   loader                       = null;
   zoom               : number  = 8;
-  mapLatitude        : any     =  42.272 ;
-  mapLongitude       : any     = -71.667 ;
+  mapLatitude        : any     =  35.000 ;
+  mapLongitude       : any     = -80.879 ;
   autoRadius         : any;
   map                : any     = null ;
   mapBounds          : LatLngBounds;

@@ -8,7 +8,7 @@ export class EventsProvider {
   constructor(public http: HttpClient) {
   }
 
-  getEventsUrl : string = "https://nerna.org/nerna_scripts/nernacal/nerna-events.php";
+  getEventsUrl : string = "https://www.crna.org/crna_docs/crna-events.php";
 
   getEvents() {
     var events = this.http.get(this.getEventsUrl, {responseType: 'text'});

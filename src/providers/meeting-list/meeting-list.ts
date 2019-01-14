@@ -5,13 +5,13 @@ import { Injectable }  from '@angular/core';
 export class MeetingListProvider {
 
   meetings : any;
-  italiaBMLT : any = "https://www.nerna.org/main_server/client_interface/json/";
+  italiaBMLT : any = "https://bmlt.sezf.org/main_server/client_interface/json/";
   tomatoBMLT : string = "https://tomato.na-bmlt.org/main_server/client_interface/json/";
 
   constructor(public http: HttpClient) {
   }
 
-    getApiUrl : string = this.italiaBMLT + "?switcher=GetSearchResults&sort_keys=longitude,latitude";
+    getApiUrl : string = this.italiaBMLT + "?switcher=GetSearchResults&services=119&recursive=1&sort_keys=longitude,latitude";
 
     getAllItalianMeetings() {
         return this.http.get(this.getApiUrl);

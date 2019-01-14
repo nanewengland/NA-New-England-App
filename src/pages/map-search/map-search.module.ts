@@ -19,7 +19,7 @@ import { AgmMarkerSpiderModule } from 'agm-spiderfeir';
   	SharedModule,
     PipesModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAtwUjsIB14f0aHgdLk_JYnUrI0jvczMXw'
+      apiKey: 'AIzaSyDrv19Tafr_IpBWPLxC2K-GfEEg-G03VDA'
     }),
     AgmJsMarkerClustererModule,
     AgmMarkerSpiderModule

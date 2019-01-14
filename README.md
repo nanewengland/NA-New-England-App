@@ -1,4 +1,4 @@
-# NA New England
+# NA Carolina
 
 ## Apple iphone/ipad app link
 
@@ -12,7 +12,7 @@ UNRELEASED
 
 Download the master.zip file...
 
-https://github.com/nanewengland/NA-New-England-App/archive/master.zip
+https://github.com/pjaudiomv/NA-Carolina-App/archive/master.zip
 
 Unzip the zip file and cd into the directory that is created
 
@@ -50,6 +50,6 @@ needs to be changed to
 
 `if (markerSpiderfied || this.map.getStreetView().getVisible() || this.map.getMapTypeId() === 'GoogleEarthAPI' || this.map.getZoom() < 7) {`
 
-depending on meeting count it wants to spidefy at inital zoom level 8, we don't want this. 
+The iphone occasionally depending on meeting count wants to spidefy at inital zoom level 8, we don't want this. 
 
 When building xcode archive for release make sure to uncheck rotation right/left so we lock orientation to portrait. There seems to be an issue with the viewport being reset on rotation, we have the "notch" on iPhone X and up to thanks for this.
