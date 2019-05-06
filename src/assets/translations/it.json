@@ -66,6 +66,7 @@
     "GROUPBY"           : "Visualizza per ",
     "AREA"              : "Area",
     "CITY"              : "Provincia",
+    "COUNTY"            : "County",
     "LOADINGMEETINGS"   : "Caricamento delle riunioni",
     "EVENTSLOADER"      : "Caricamento eventi...",
     "EVENTSDETAILS"     : "Per tutti i dettagli sugli eventi di NA Italia, visita ",

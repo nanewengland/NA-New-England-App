@@ -13,16 +13,18 @@ import { firstBy }                from 'thenby';
 })
 export class MeetinglistComponent {
 
-    meetingList               : any;
-    meetingListArea           : any;
-    meetingListCity           : any;
-    meetingsListAreaGrouping  : string;
-    meetingsListCityGrouping  : string;
-    shownGroup                            = null;
-    loader                                = null;
-    serviceGroupNames         : any;
-    HTMLGrouping              : any;
-    timeDisplay               : string  = "";
+    meetingList                : any;
+    meetingListArea            : any;
+    meetingListCounty          : any;
+    meetingListCity            : any;
+    meetingsListAreaGrouping   : string;
+    meetingsListCountyGrouping : string;
+    meetingsListCityGrouping   : string;
+    shownGroup                 = null;
+    loader                     = null;
+    serviceGroupNames          : any;
+    HTMLGrouping               : any;
+    timeDisplay                : string  = "";
 
     constructor ( private MeetingListProvider   : MeetingListProvider,
                   private ServiceGroupsProvider : ServiceGroupsProvider,
@@ -50,7 +52,8 @@ export class MeetinglistComponent {
         this.HTMLGrouping = "area";
         this.loader.present();
         this.meetingsListAreaGrouping = 'service_body_bigint';
-        this.meetingsListCityGrouping = 'location_sub_province';
+        this.meetingsListCountyGrouping = 'location_sub_province';
+        this.meetingsListCityGrouping = 'location_municipality';
         this.getServiceGroupNames();
     }
 
@@ -96,9 +99,20 @@ export class MeetinglistComponent {
                 );
             }
 
+            this.meetingListCounty = this.meetingList.concat();
+            this.meetingListCounty.filter(i => i.start_time_set = this.convertTo12Hr(i.start_time));
+            this.meetingListCounty.sort((a, b) => a.location_sub_province.localeCompare(b.location_sub_province));
+            this.meetingListCounty = this.groupMeetingList(this.meetingListCounty, this.meetingsListCountyGrouping);
+            for (var i = 0; i < this.meetingListCounty.length; i++) {
+                this.meetingListCounty[i].sort(
+                    firstBy("weekday_tinyint")
+                        .thenBy("start_time")
+                );
+            }
+
             this.meetingListCity = this.meetingList.concat();
             this.meetingListCity.filter(i => i.start_time_set = this.convertTo12Hr(i.start_time));
-            this.meetingListCity.sort((a, b) => a.location_sub_province.localeCompare(b.location_sub_province));
+            this.meetingListCity.sort((a, b) => a.location_municipality.localeCompare(b.location_municipality));
             this.meetingListCity = this.groupMeetingList(this.meetingListCity, this.meetingsListCityGrouping);
             for (var i = 0; i < this.meetingListCity.length; i++) {
                 this.meetingListCity[i].sort(

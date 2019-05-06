@@ -66,6 +66,7 @@
     "GROUPBY"           : "Group by ",
     "AREA"              : "Area",
     "CITY"              : "Province",
+    "COUNTY"            : "County",
     "LOADINGMEETINGS"   : "Finder møder ...",
     "EVENTSLOADER"      : "Indlæser begivenheder...",
     "EVENTSDETAILS"     : "For full details of NA events in New England, visit ",
