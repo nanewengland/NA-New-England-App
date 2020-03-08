@@ -2,11 +2,11 @@
 
 ## Apple iphone/ipad app link
 
-UNRELEASED
+[https://apps.apple.com/us/app/na-new-england/id1448287544](https://apps.apple.com/us/app/na-new-england/id1448287544)
 
 ## Android phone/tablet link
 
-UNRELEASED
+[https://play.google.com/store/apps/details?id=org.nerna.nanewengland](https://play.google.com/store/apps/details?id=org.nerna.nanewengland)
 
 ## Build it yourself (on a mac)
 
