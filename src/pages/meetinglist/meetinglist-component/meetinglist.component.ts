@@ -82,7 +82,7 @@ export class MeetinglistComponent {
     }
 
     getAllMeetings(){
-        this.MeetingListProvider.getAllItalianMeetings().subscribe((data)=>{
+        this.MeetingListProvider.getAllNernaMeetings().subscribe((data)=>{
             this.meetingList = data;
             this.meetingList = this.meetingList.filter(meeting => meeting.service_body_bigint = this.getServiceNameFromID(meeting.service_body_bigint));
 
