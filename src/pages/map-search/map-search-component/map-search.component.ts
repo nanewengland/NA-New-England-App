@@ -157,9 +157,11 @@ var i : any;
 
   public openMapsLink(destLatitude, destLongitude) {
     const browser = this.iab.create('https://www.google.com/maps/search/?api=1&query=' + destLatitude + ',' + destLongitude, '_system');
-
   }
 
+  public openLink(url) {
+    const browser = this.iab.create(url, '_system');
+  }
 
   presentLoader(loaderText) {
     if (!this.loader) {

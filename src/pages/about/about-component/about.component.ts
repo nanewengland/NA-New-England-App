@@ -8,8 +8,8 @@ import { InAppBrowser }     from '@ionic-native/in-app-browser';
 })
 export class AboutComponent {
 
-    sourceCodeLink    : string = "https://github.com/paulnagle/BMLTSearch";
-    sourceCodeRepo        : string = "https://github.com/bmlt-enabled/";
+    sourceCodeLink    : string = "https://github.com/bmlt-enabled/BMLTSearch";
+    sourceCodeRepo    : string = "https://github.com/bmlt-enabled/";
     bmltLink          : string = "https://bmlt.app/";
 
     constructor( private config       : Config,
@@ -19,7 +19,6 @@ export class AboutComponent {
 
     public openLink(url) {
         const browser = this.iab.create(url, '_system');
-
     }
 
 }

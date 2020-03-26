@@ -6,6 +6,7 @@ import { ServiceGroupsProvider }  from '../../../providers/service-groups/servic
 import { TranslateService }       from '@ngx-translate/core';
 import { LoadingController }      from 'ionic-angular';
 import { firstBy }                from 'thenby';
+import {InAppBrowser} from "@ionic-native/in-app-browser";
 
 @Component({
     selector: 'page-meetinglist',
@@ -31,7 +32,8 @@ export class MeetinglistComponent {
                   private storage               : Storage,
                   public loadingCtrl            : LoadingController,
                   public plt                    : Platform,
-                  private translate             : TranslateService )
+                  private translate             : TranslateService,
+                  private iab                   : InAppBrowser )
     {
         // MeetiningListComponent constructor
         this.translate.get('LOADINGMEETINGS').subscribe(
@@ -55,6 +57,10 @@ export class MeetinglistComponent {
         this.meetingsListCountyGrouping = 'location_sub_province';
         this.meetingsListCityGrouping = 'location_municipality';
         this.getServiceGroupNames();
+    }
+
+    public openLink(url) {
+        const browser = this.iab.create(url, '_system');
     }
 
 // TODO:

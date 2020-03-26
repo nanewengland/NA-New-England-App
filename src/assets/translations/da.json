@@ -87,5 +87,7 @@
     "BMLT_ENABLED"      : "BMLT Enabled",
     "BMLT_ENABLED_TXT"  : "This app was made possible by the efforts of the BMLT Enabled community to learn more about the projects they work on visit some of these links.",
     "VISIT_CODE"        : "Visit Code Repository",
-    "LOADINGCONTACTS"   : "Loading Contacts"
+    "LOADINGCONTACTS"   : "Loading Contacts",
+    "VIRTUAL_LINK"      : "Virtual Link",
+    "PHONE_MEETING"     : "Phone Meeting Dial-in"
 }
